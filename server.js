@@ -10,7 +10,7 @@ const cors = require('cors');
 const WebSocket = require('ws');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 const JWT_SECRET = process.env.JWT_SECRET || 'qsdfghjklmazertyuiopwxcvbn1234567890';
 
 // Middleware
