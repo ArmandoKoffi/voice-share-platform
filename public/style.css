@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.header p {
+  opacity: 0.9;
+  font-size: 1.1em;
+}
+
+.content {
+  padding: 40px;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e1e8ed;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: #6c757d;
+}
+
+.btn-danger {
+  background: #dc3545;
+}
+
+.btn-success {
+  background: #28a745;
+}
+
+.voice-recorder {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.record-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 20px;
+}
+
+.record-button.recording {
+  background: #dc3545;
+  color: white;
+  animation: pulse 1s infinite;
+}
+
+.record-button:not(.recording) {
+  background: #28a745;
+  color: white;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.timer {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.audio-player {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.notes-list {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.note-item {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-info {
+  flex: 1;
+}
+
+.note-from {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.note-date {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.note-duration {
+  background: #667eea;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  margin-right: 10px;
+}
+
+.status-indicator {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.status-sent {
+  background: #28a745;
+  color: white;
+}
+
+.status-read {
+  background: #6c757d;
+  color: white;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #f5c6cb;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #c3e6cb;
+}
+
+.tab-buttons {
+  display: flex;
+  border-bottom: 2px solid #e1e8ed;
+  margin-bottom: 30px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.tab-button.active {
+  border-bottom-color: #667eea;
+  color: #667eea;
+  font-weight: bold;
+}
+
+.user-info {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 15px;
+}
+
+.user-info h3 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .container {
+      margin: 10px;
+  }
+  
+  .content {
+      padding: 20px;
+  }
+  
+  .header {
+      padding: 20px;
+  }
+  
+  .header h1 {
+      font-size: 2em;
+  }
+}
+
+#sent-tab {
+  display: none;
+}
+
+/* Ajoutez ces styles à la fin du fichier */
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.record-button.recording {
+  background: #dc3545;
+  color: white;
+  animation: pulse 1s infinite, glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #dc3545;
+  }
+  to {
+    box-shadow: 0 0 20px #dc3545;
+  }
+}
+
+#recording-status {
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#recording-status.recording {
+  background-color: #ffebee;
+  color: #dc3545;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceShare - Plateforme d'échange vocal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎤 VoiceShare</h1>
+            <p>Partagez des notes vocales éphémères</p>
+        </div>
+
+        <div class="content">
+            <!-- Section de connexion -->
+            <div id="auth-section" class="section active">
+                <div id="login-form">
+                    <h2>Connexion</h2>
+                    <div id="auth-error" class="error"></div>
+                    <div class="form-group">
+                        <label for="login-username">Nom d'utilisateur</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Mot de passe</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button class="btn" onclick="login()">Se connecter</button>
+                    <button class="btn btn-secondary" onclick="showRegister()">Créer un compte</button>
+                </div>
+
+                <div id="register-form">
+                    <h2>Inscription</h2>
+                    <div class="form-group">
+                        <label for="register-username">Nom d'utilisateur</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Mot de passe (min. 6 caractères)</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button class="btn" onclick="register()">S'inscrire</button>
+                    <button class="btn btn-secondary" onclick="showLogin()">Retour à la connexion</button>
+                </div>
+            </div>
+
+            <!-- Section principale -->
+            <div id="main-section" class="section">
+                <div class="user-info">
+                    <h3>Bienvenue, <span id="current-username"></span>! 👋</h3>
+                    <button class="btn btn-danger" onclick="logout()">Déconnexion</button>
+                </div>
+
+                <div class="tab-buttons">
+                    <button class="tab-button active" onclick="showTab('send')">Envoyer 📤</button>
+                    <button class="tab-button" onclick="showTab('received')">Reçues 📬</button>
+                    <button class="tab-button" onclick="showTab('sent')">Envoyées 📨</button>
+                </div>
+
+                <!-- Onglet Envoyer -->
+                <div id="send-tab" class="tab-content">
+                    <div id="send-error" class="error"></div>
+                    <div id="send-success" class="success"></div>
+                    
+                    <div class="form-group">
+                        <label for="recipient">Destinataire</label>
+                        <input type="text" id="recipient" placeholder="Nom d'utilisateur du destinataire">
+                        <div id="recipient-status"></div>
+                    </div>
+
+                    <div class="voice-recorder">
+                        <button id="record-button" class="record-button" onclick="toggleRecording()">🎤</button>
+                        <div class="timer" id="timer">00:00</div>
+                        <div id="recording-status">Cliquez pour commencer l'enregistrement</div>
+                        <audio id="audio-preview" class="audio-player" controls></audio>
+                        <div id="audio-controls" class="audio-controls">
+                            <button class="btn btn-success" onclick="sendVoiceNote()">Envoyer la note</button>
+                            <button class="btn btn-secondary" onclick="resetRecording()">Recommencer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Onglet Notes reçues -->
+                <div id="received-tab" class="tab-content">
+                    <h3>Notes vocales reçues</h3>
+                    <div id="received-notes" class="notes-list">
+                        <p>Chargement...</p>
+                    </div>
+                </div>
+
+                <!-- Onglet Notes envoyées -->
+                <div id="sent-tab" class="tab-content">
+                    <h3>Notes vocales envoyées</h3>
+                    <div id="sent-notes" class="notes-list">
+                        <p>Chargement...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
